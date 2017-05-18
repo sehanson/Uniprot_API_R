@@ -1,0 +1,10 @@
+library(httr)
+e_mail <- '' #Enter your email address here to help hosts troubleshoot issues
+us_er <- paste0('R ', e_mail)
+acc1 <- '' #Enter the starting accession id (e.g. 'ACC' for Uniprot accession)
+acc2 <- '' #Enter the target accession id (e.g. 'HPA_ID' for Human Protein Atlas accession)
+fmt <- '' #Enter format (e.g. 'tab' for TSV)
+qry <- '' #Enter query term
+user_agent(us_er)
+r <- POST('http://www.uniprot.org/uploadlists/', body = list(from= acc1, to = acc2, format = fmt, query = qry), encode = "form")
+print(r)
